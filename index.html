@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html ng-app="ratingImages">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<meta http-equiv="content-language" content="en" />
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge;chrome=1" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no" />
+
+	<title>Califica la grafica te guste.</title>
+	<link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="assets/css/style.css">
+	<link href="assets/css/font-awesome-4.1.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+	<div id="main">
+		<ng-include src="'common/partials/header.html'"></ng-include>
+	    <div ng-view></div>
+	    <ng-include src="'common/partials/footer.html'"></ng-include>
+	</div>
+</body>
+
+<script type="text/javascript" src="assets/lib/bootstrap/jquery.js"></script>
+<script type="text/javascript" src="assets/lib/bootstrap/bootstrap.min.js"></script>
+<script type="text/javascript" src="assets/lib/angularjs/angular.min.js"></script>
+<script type="text/javascript" src="assets/lib/angularjs/angular-sanitize.min.js"></script>
+<script type="text/javascript" src="assets/lib/angularjs/angular-route.min.js"></script>
+<script src="assets/lib/validator/angular-validator.js"></script>
+<!--<script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/locale/es.js"></script>--->
+
+
+<!-- ************************* Libreria de Firebase ************************** -->
+<script src="https://www.gstatic.com/firebasejs/3.7.5/firebase.js"></script>
+<script type="text/javascript" src="assets/lib/angularfire/angularfire.js"></script>
+<!-- ************************* Archivo app ************************** -->
+<script type="text/javascript" src="common/config/config.js"></script>
+<script type="text/javascript" src="common/config/app.js"></script>
+
+<!-- ************************* Home ************************** -->
+<script type="text/javascript" src="components/home/controllers/homeCtrl.js"></script>
+<script type="text/javascript" src="components/home/services/homeUserSrv.js"></script>
+<script type="text/javascript" src="components/home/factories/homeUserFact.js"></script>
+<!-- ************************* Home ************************** -->
+
+<!-- ************************* Common ************************** -->
+<script type="text/javascript" src="common/controllers/headerCtrl.js"></script>
+<script type="text/javascript" src="common/factories/userCommonFact.js"></script>
+
+<script type="text/javascript" src="common/services/commonUserSrv.js"></script>
+<!-- ************************* Home ************************** -->
+
+
+
+
+</html>
+
+
+
+
+
+
+
+
+
+
+
+

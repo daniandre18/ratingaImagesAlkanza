@@ -1,0 +1,68 @@
+<!-- Page Content -->
+    <div class="container" ng-controller="homeCtrl as home">
+        <!-- Jumbotron Header -->
+        <header class="jumbotron hero-spacer" ng-show="!home.ratingContainer">
+            <h1>Bienvenido!</h1>
+            <p> Por Favor digite la siguiente información para empezar a calificar las imágenes</p>
+
+            <form name ="registerForm" id="registerform" role="form" angular-validator-submit="home.registerUser()" novalidate angular-validator>
+                <div class="form-group">
+                    <label for="pwd">Nombre:</label>
+                    <input type="text" name="firstName" class="form-control" id="firstName" ng-model="home.dataRegister.nameUser" required required-message="'Este campo es requerido'" placeholder="Nombre">
+                </div>
+                <div class="form-group">
+                    <label for="email">Correo Electrónico:</label>.
+                    <input type="email" class="form-control" ng-model="home.dataRegister.email" name ="emailAddress" invalid-message="'Debe ingresar correctamente el correo electrónico'"
+              required-message="'El correo electrónico es requerido'" validate-on="dirty" required class="form-control" placeholder="Correo electrónico">
+                </div>
+                <div class="form-group">
+                    <label for="email">Contraseña:</label>
+                    <input id="register-password" type="password" class="form-control" name="password" placeholder="Contraseña" ng-model="home.dataRegister.password" required required-message="'Este campo es requerido'">
+                </div>
+                <button type="submit" class="btn btn-primary">Empezar</button>
+            </form>
+
+        </header>
+
+        <hr>
+
+        <div id="ratingContainer" ng-show="home.ratingContainer">
+            <!-- Title -->
+            <div class="row">
+                <div class="col-lg-12">
+                    <h3>Escoge la imagen que más te guste</h3>
+                </div>
+            </div>
+            <!-- /.row -->
+
+            <!-- Page Features -->
+            <div class="row text-center">
+                 <div class="col-md-6 col-sm-6 hero-feature">
+                    <div class="thumbnail">
+                        <img src="{{home.imageOne}}" alt="imagen1">
+                        <div class="caption">
+                            <p>
+                                <button ng-click="home.sendRate()" class="btn btn-primary">Votar</a> 
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-sm-6 hero-feature">
+                    <div class="thumbnail">
+                        <img src="{{home.imageTo}}" alt="imagen2">
+                        <div class="caption">
+                            <p>
+                                <button ng-click="home.sendRate()"  class="btn btn-primary">Votar</a>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>    
+        </div>
+
+
+
+
+
+

@@ -39,10 +39,10 @@
             <div class="row text-center">
                  <div class="col-md-6 col-sm-6 hero-feature">
                     <div class="thumbnail">
-                        <img src="{{home.imageOne}}" alt="imagen1">
+                        <img src="{{home.imageOne}}" alt="imagen1" height="222" width="355">
                         <div class="caption">
                             <p>
-                                <button ng-click="home.sendRate()" class="btn btn-primary">Votar</a> 
+                                <button ng-click="home.sendRate(home.imageOne)" class="btn btn-primary">Votar</a> 
                             </p>
                         </div>
                     </div>
@@ -50,10 +50,10 @@
 
                 <div class="col-md-6 col-sm-6 hero-feature">
                     <div class="thumbnail">
-                        <img src="{{home.imageTo}}" alt="imagen2">
+                        <img src="{{home.imageTwo}}" alt="imagen2" height="222" width="355">
                         <div class="caption">
                             <p>
-                                <button ng-click="home.sendRate()"  class="btn btn-primary">Votar</a>
+                                <button ng-click="home.sendRate(home.imageTwo)"  class="btn btn-primary">Votar</a>
                             </p>
                         </div>
                     </div>

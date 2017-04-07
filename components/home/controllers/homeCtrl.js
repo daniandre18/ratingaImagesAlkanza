@@ -11,21 +11,20 @@ angular.module('ratingImages').controller('homeCtrl',['homeUserSrv','commonUserS
 				vm.loadImages();
 		})
 	}
-
 	vm.loadImages = function (){
-		var images = homeUserSrv.loadImages()
-		var size = images.length;
-		var x = Math.floor(size*Math.random());
-		vm.imageOne = images[x];
-		vm.imageTo = images[x-1];
-
-		console.log("images", images);
+		var images = homeUserSrv.loadImages();
+		var imageTwo =  homeUserSrv.generateRandomImage(images);
+		vm.imageOne = homeUserSrv.generateRandomImage(images);
+		vm.imageTwo = (vm.imageOne == imageTwo) ? homeUserSrv.generateRandomImage(images) :  imageTwo;
 	}
-
-	vm.sendRate = function (idImage){
-		vm.loadImages();
-
-
+	vm.sendRate = function (urlImage){
+		console.log("image",urlImage);
+		homeUserSrv.sendRate(urlImage)
+		.then((response)=>{
+			vm.loadImages();
+		})
+		.catch((error)=>{
+			console.log("error al guardar calificacíón", error)
+		})
 	}
-    
 }]);

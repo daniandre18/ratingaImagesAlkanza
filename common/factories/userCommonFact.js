@@ -13,7 +13,6 @@ angular.module('ratingImages').factory("userCommonFact",["$q","$firebaseObject",
         authUser : function(email, password){
             
             var defered = $q.defer();
-            
             $firebaseAuth(mainRef).$authWithPassword({
                 email: email,
                 password: password

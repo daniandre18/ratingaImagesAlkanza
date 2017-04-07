@@ -1,9 +1,15 @@
 angular.module('ratingImages').factory("homeUserFact",["$q","$http", "$firebaseObject", "$firebaseArray", function($q, $http, $firebaseObject, $firebaseArray){
     return {
-        saveRating : function(data){ 
-            var defered = $q.defer();
-          
-            return defered.promise;
+        saveRate : function(data){ 
+            return $q((resolve, reject)=>{
+                mainRef.child('ratings/'+data.uid).push(data.image, function (error){
+                    if(error){
+                        reject(error);
+                    }else{
+                        resolve(true);
+                    }
+                });
+            }); 
         },
 
         getImages : function(){
@@ -12,7 +18,7 @@ angular.module('ratingImages').factory("homeUserFact",["$q","$http", "$firebaseO
             // Aplication ID bf4dc818dc6a3d243c1623690ecbc1f608cb835c420a9413f4aaa782075e7db
             $http({
            		method: "GET",
-          		url: "https://api.unsplash.com/photos/?client_id=bf4dc818dc6a3d243c1623690ecbc1f608cb835c420a9413f4aaa782075e7db1&per_page=30&page=1"+$scope.pagenumber,
+          		url: "https://api.unsplash.com/photos/?client_id=bf4dc818dc6a3d243c1623690ecbc1f608cb835c420a9413f4aaa782075e7db1&per_page=30&page=1",
 		     }).then(
 		         function(res)
 		         {
@@ -41,7 +47,21 @@ angular.module('ratingImages').factory("homeUserFact",["$q","$http", "$firebaseO
 		        function(res){
 		       		console.log('error',res);
         		});
-          
+        },
+
+        getAllRatings : function (){
+        	return $q((resolve, reject) => {
+                $firebaseObject(mainRef.child('ratings/')).$loaded(function (data) {
+                    if(data){
+                        resolve(data);
+                    }else{
+                        reject("no data exist");
+                    }
+                });
+
+            });
+
+
         }
     }
 }]);
